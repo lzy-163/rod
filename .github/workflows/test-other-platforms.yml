@@ -56,3 +56,9 @@ jobs:
 
       # As long as the build works we don't have to run tests.
       - run: go build ./lib/examples/translator
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: cdp-log-old-go
+          path: tmp/cdp-log
